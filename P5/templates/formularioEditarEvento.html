@@ -1,0 +1,76 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Editar Evento  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">EDITAR EVENTO </h3>
+    <a href="index.php"><img  class="miniatura" src="templates/images/home.png" /></a> 
+
+    <div class="formulario">
+        <form action="editarEventonombre.php?ev={{ evento['id'] }}" method="post" >
+    
+            <h6  class="comentario_individual">Nombre: </h6>
+            <textarea name="nombre_evento" id="nombre_evento"  rows="1" cols="25" required>{{ evento['nombre'] }}</textarea>
+            
+            <input  class="boton2" type="submit" value="Editar Nombre">
+            
+        </form>
+       
+        <form action="editarEventoorg.php?ev={{ evento['id'] }}" method="post" >
+    
+            <h6  class="comentario_individual">Organizacion: </h6>
+            <textarea name="org_evento" id="org_evento"  rows="1" cols="25" required>{{ evento['organizacion'] }}</textarea>
+            
+            <input class="boton2" type="submit" value="Editar Organizacion">
+            
+        </form>
+
+        <form action="editarEventofecha.php?ev={{ evento['id'] }}" method="post" >
+    
+            <h6  class="comentario_individual">Fecha: </h6>
+            <textarea name="fecha_evento" id="fecha_evento"  rows="1" cols="25" required>{{ evento['fecha'] }}</textarea>
+            
+            <input class="boton2" type="submit" value="Editar Fecha">
+            
+        </form>
+   
+        <form action="editarEventoEtiquetas.php?ev={{ evento['id'] }}" method="post" >
+    
+            <h6  class="comentario_individual">Etiquetas: (separadas por coma sin espacios) </h6>
+            <textarea name="etiquetas_evento" id="etiquetas_evento"  rows="1" cols="25" required>{{ evento['etiquetas'] }}</textarea>
+            <input  class="boton2" type="submit" value="Editar Etiquetas">
+        </form>
+
+        <form action="editarEventocontenido.php?ev={{ evento['id'] }}" method="post" >
+    
+            <h6  class="comentario_individual">Descripcion: </h6>
+            <textarea name="contenido_evento" id="contenido_evento"  rows="5" cols="50" required>{{ evento['descripcion'] }}</textarea>
+            <br></br>
+            <div style="text-align: center;">
+            <input  type="submit" value="Editar Contenido">
+            </div>
+        </form>
+
+        <form action="formularioEditarImagenesEvento.php?ev={{ evento['id'] }}" method="post" >
+            <input  type="submit" value="Editar Fotos">
+            <br></br>
+        </form>
+
+        {% if evento['publicado'] != 1 %}
+        <form action="publicarEvento.php?ev={{ evento['id'] }}" method="post" >
+            <h6  class="comentario_individual">Estado: no publicado </h6>
+            <input  type="submit" value="Hacer publico">
+            <br></br>
+        </form>
+        {% else %}
+        <form action="borradorEvento.php?ev={{ evento['id'] }}" method="post" >
+            <h6  class="comentario_individual">Estado: publicado </h6>
+            <input  type="submit" value="Guardar como borrador">
+        </form>
+
+        {% endif %}
+        
+    </div>
+
+{% endblock %}

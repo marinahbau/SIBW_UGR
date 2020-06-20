@@ -1,0 +1,161 @@
+{% extends 'padre.html' %}
+
+{% block titulo %} Evento {% endblock %}
+
+{% block css %}  <link rel="stylesheet" href="templates/styles/stylesevento.css"/> {% endblock %}
+{% block opciones %} <script src="templates/javascript/funciones.js"></script>{% endblock %}
+
+
+		{% block registro %}
+			{% if not usuario %}
+				<h4>No estas registrado. Registrate o Logueate <a href="registrologin.php">aqui</a></h4>
+			
+			{% else %}
+				<h4>Hola {{ usuario['nick'] }}</h4>
+				<a href="cierraSesion.php">Cerrar Sesion</a>
+			{% endif%}
+		{% endblock %}
+		
+		
+		{% block central %}
+		{% if estilo_bool == 0 %}
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<div class="prrueba"><h3>Deja un comentario!</h3></div>
+					<div class="zona_comentarios">
+						{% for value in comentarios%}
+						{% if usuario['tipo'] == "moderador" or usuario['tipo'] == "superusuario" %}
+						<a href="formularioEditar.php?ev={{ evento['id'] }}&cm={{value.id}}"><img  src="templates/images/edit.png" /></a> 
+						<a href="eliminarComentario.php?cm={{value.id}}"><img src="templates/images/eliminar.png" /></a> 
+						{% endif %} 
+						<div class="comentario_individual" id="ultimo_comentario">
+							<b>{{ value.nombre }}</b> {% if value.editado == 1 %} (editado por moderador) {% endif %}
+							<p >{{ value.contenido }}</p>
+							<p class="fechayhora">{{ value.fecha }}</p>
+						</div>
+						{% endfor %}
+						
+					</div>
+					{% if usuario %}
+					<div class="formulario">
+						<form action="insertarComentario.php?ev={{ evento['id'] }}" method="post" >
+							<h6 class="campos_formulario" id="nombre_formulario">Nombre:* </h6>
+							<div id="mi"></div><input type="text" name="nombre_usuario" id="nombre_usuario" maxlength="50" size="50"required>
+                
+							<h6 class="campos_formulario" id="email_formulario">e-mail:* </h6>
+							<input type="email" name="email_usuario" id="email_usuario" maxlength="70" size="50" required>
+
+							<h6 class="campos_formulario" id="comentarios_formulario">Mensaje:* </h6>
+							<textarea name="comentarios_usuario" id="comentarios_usuario" value="Escribe aquí tu comentario" rows="5" cols="50" onkeypress="comprobarPalabras(event)" required></textarea>
+							<input type="submit" value="Enviar">
+						</form>
+					</div>
+					{% else %}
+						<h6 class="campos_formulario" >&nbsp&nbsp&nbsp&nbsp Registrate para publicar un comentario! </h6>
+					{% endif %}
+		</div>
+		{% endif %}
+
+        <div class="principal">
+            <div class="prueba">
+                <div class="info">
+                    <h3> {{ evento['nombre'] }} </h3>
+                    <h4> {{ evento['organizacion'] }} </h4>
+					<h5> {{ evento['fecha'] }} </h5>
+				
+                </div>
+                
+                <div class="rutaimg">
+                    <img class="fotosruta" src="{{ imagenes['ruta1'] }}" /> 
+                    <p> <em> {{ imagenes['pie_foto1'] }} </em> </p>
+                </div>
+                
+                <div class="rutaimg">
+                    <img class="fotosruta"  src="{{ imagenes['ruta2'] }}"/> 
+                    <p> <em> {{ imagenes['pie_foto2'] }} </em> </p>
+                </div>
+            </div>
+
+            <div class="descripcion">
+                <p>
+					{% if etiquetas|length > 1 %}
+					<h5>
+					{% for e in etiquetas %}
+						 #{{ e }}&emsp;
+					{% endfor %}
+					</h5>
+					{% endif %}
+                    {{ evento['descripcion'] }}
+				</p>
+				
+			
+			
+				<p>
+					 Mas info: <a href={{ evento['enlace'] }}> Pincha Aquí! </a>
+					 
+				</p>
+                
+				{% if estilo_bool == 0 %}
+               <div class= "clase_botones">
+                <a href="https://twitter.com/geokedagranada?lang=es"><img class="botones" src="templates/images/twitterlogo.png"/></a>
+                &emsp;&emsp;
+                <a href="https://www.facebook.com/cubocaja"><img class="botones" src="templates/images/facebook.png"/></a>
+                &emsp;&emsp;
+                <a href="evento.php?ev={{ evento['id'] }}&sty=1"><img class="botones" src="templates/images/imprimir.png"/></a>
+                &emsp;&emsp;
+                <span onclick="openNav()"><img class="comentario" src="templates/images/comen.png" ></span>
+				</div>
+				
+				{% endif %}
+
+				{% if usuario['tipo'] == "gestor" or usuario['tipo'] == "superusuario" %}
+			
+				<a href="formularioEditarEvento.php?ev={{ evento['id'] }}"><img  src="templates/images/dibujar.png"/></a>
+				&emsp;
+                <a href="eliminarEvento.php?ev={{ evento['id'] }}"><img  src="templates/images/trash.png"/></a>
+                
+				{% endif %}
+            	</div>
+			{% if evento['id'] == 1 %} <!-- Solo el evento 1 tiene la galeria disponible en este momento -->
+			{% if estilo_bool == 0 %}
+			<!-- Container for the image gallery -->
+			<div class="container">
+
+				<!-- Full-width images with number text -->
+				{% for key, value in galeria %}
+				<div class="mySlides">
+					<div class="numbertext">{{ key }} / 5</div>
+						<img src={{ value.ruta }} style="width:100%">
+				</div>
+				{% endfor %}
+				
+				
+
+				<!-- Next and previous buttons -->
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+				<!-- Image text -->
+				<div class="caption-container">
+					<p id="caption"></p>
+				</div>
+
+				<!-- Thumbnail images -->
+			
+				<div class="row">
+					{% for key, value in galeria %}
+					<div class="column">
+						<img class="demo cursor" src={{ value.ruta }} style="width:100%" onclick="currentSlide({{key}})" alt="{{ value.pie_foto }}">
+					</div>
+					{% endfor %}
+				
+				</div>
+			
+			</div>
+			{% endif %}
+			{% endif %}
+			
+       </div>
+		{% endblock %}
+       
+  

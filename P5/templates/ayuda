@@ -1,0 +1,6 @@
+{% for i in eventos %}
+						<section class="secundario">
+							<img class="fotos" src={{i.icono}} alt="Sierra Nevada"/>
+							<a href="evento.php?ev={{i.id}}"><h3 align="center">{{i.nombre}}</h3> </a>
+						</section>
+						{% endfor %}

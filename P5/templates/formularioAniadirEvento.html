@@ -1,0 +1,42 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Insertar Evento  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">INSERTAR EVENTO </h3>
+    <a href="index.php"><img  class="miniatura" src="templates/images/home.png" /></a> 
+
+    <div class="formulario">
+        <form action="aniadirEvento.php" method="post" >
+    
+            <h6  class="comentario_individual">Nombre: </h6>
+            <textarea name="nombre_evento" id="nombre_evento"  rows="1" cols="25" required></textarea>
+    
+    
+            <h6  class="comentario_individual">Organizacion: </h6>
+            <textarea name="org_evento" id="org_evento"  rows="1" cols="25" required></textarea>
+            
+            <h6  class="comentario_individual">Fecha: </h6>
+            <textarea name="fecha_evento" id="fecha_evento"  rows="1" cols="25" required></textarea>
+    
+            <h6  class="comentario_individual">Contenido: </h6>
+            <textarea name="contenido_evento" id="contenido_evento"  rows="5" cols="50" required></textarea>
+
+            
+            <h6  class="comentario_individual">Enlace externo: </h6>
+            <textarea name="enlace_evento" id="enlace_evento"  rows="1" cols="25" required></textarea>
+
+            <h6  class="comentario_individual">Etiquetas separadas por coma: </h6>
+            <textarea name="etiquetas_evento" id="etiquetas_evento"  rows="1" cols="25" required></textarea>
+
+            <h6  class="comentario_individual">1-publicado 0-borrador </h6>
+            <textarea name="publicado_evento" id="publicado_evento"  rows="1" cols="5" required></textarea>
+            <br></br>
+            <div style="text-align: center;">
+            <input  type="submit" value="Siguiente">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

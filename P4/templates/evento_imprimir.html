@@ -1,0 +1,121 @@
+{% extends 'padre.html' %}
+
+{% block titulo %} Evento {% endblock %}
+
+{% block css %} <link rel="stylesheet" href="templates/styles/imprimirestilo.css"/> {% endblock %}
+{% block opciones %} <script src="templates/javascript/funciones.js"></script>{% endblock %}
+
+
+		
+		
+		{% block central %}
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<div class="prrueba"><h3>Deja un comentario!</h3></div>
+					<div class="zona_comentarios">
+						{% for value in comentarios%}
+						<div class="comentario_individual" id="ultimo_comentario">
+							<b>{{ value.nombre }}</b>
+							<p >{{ value.contenido }}</p>
+							<p class="fechayhora">{{ value.fecha }}</p>
+						</div>
+						{% endfor %}
+						
+					</div>
+            
+					<div class="formulario">
+						<form action="insertarComentario.php?ev={{ evento['id'] }}" method="post" >
+							<h6 class="campos_formulario" id="nombre_formulario">Nombre:* </h6>
+							<div id="mi"></div><input type="text" name="nombre_usuario" id="nombre_usuario" maxlength="50" size="50"required>
+                
+							<h6 class="campos_formulario" id="email_formulario">e-mail:* </h6>
+							<input type="email" name="email_usuario" id="email_usuario" maxlength="70" size="50" required>
+
+							<h6 class="campos_formulario" id="comentarios_formulario">Mensaje:* </h6>
+							<textarea name="comentarios_usuario" id="comentarios_usuario" value="Escribe aquí tu comentario" rows="5" cols="50" onkeypress="comprobarPalabras(event)" required></textarea>
+							<input type="submit" value="Enviar">
+						</form>
+					</div>
+		</div>
+
+        <div class="principal">
+            <div class="prueba">
+                <div class="info">
+                    <h3> {{ evento['nombre'] }} </h3>
+                    <h4> {{ evento['organizacion'] }} </h4>
+                    <h5> {{ evento['fecha'] }} </h5>
+                </div>
+                
+                <div class="rutaimg">
+                    <img class="fotosruta" src="{{ imagenes['ruta1'] }}" /> 
+                    <p> <em> {{ imagenes['pie_foto1'] }} </em> </p>
+                </div>
+                
+                <div class="rutaimg">
+                    <img class="fotosruta"  src="{{ imagenes['ruta2'] }}"/> 
+                    <p> <em> {{ imagenes['pie_foto2'] }} </em> </p>
+                </div>
+            </div>
+
+            <div class="descripcion">
+                <p>
+                    {{ evento['descripcion'] }}
+				</p>
+				
+			
+			
+				<p>
+					 Mas info: <a href={{ evento['enlace'] }}> Pincha Aquí! </a>
+					 
+				</p>
+                
+				
+               <div class= "clase_botones">
+                <a href="https://twitter.com/geokedagranada?lang=es"><img class="botones" src="templates/images/twitterlogo.png"/></a>
+                &emsp;&emsp;
+                <a href="https://www.facebook.com/cubocaja"><img class="botones" src="templates/images/facebook.png"/></a>
+                &emsp;&emsp;
+                <a href="evento_imprimir.php/?ev={{ evento['id'] }}"><img class="botones" src="templates/images/imprimir.png"/></a>
+                &emsp;&emsp;
+                <span onclick="openNav()"><img class="comentario" src="templates/images/comen.png" ></span>
+				</div>
+            </div>
+			{% if evento['id'] == 1 %} <!-- Solo el evento 1 tiene la galeria disponible en este momento -->
+			<!-- Container for the image gallery -->
+			<div class="container">
+
+				<!-- Full-width images with number text -->
+				{% for key, value in galeria %}
+				<div class="mySlides">
+					<div class="numbertext">{{ key }} / 5</div>
+						<img src={{ value.ruta }} style="width:100%">
+				</div>
+				{% endfor %}
+				
+				
+
+				<!-- Next and previous buttons -->
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+				<!-- Image text -->
+				<div class="caption-container">
+					<p id="caption"></p>
+				</div>
+
+				<!-- Thumbnail images -->
+			
+				<div class="row">
+					{% for key, value in galeria %}
+					<div class="column">
+						<img class="demo cursor" src={{ value.ruta }} style="width:100%" onclick="currentSlide({{key}})" alt="{{ value.pie_foto }}">
+					</div>
+					{% endfor %}
+				
+				</div>
+			
+			</div>
+			{% endif %}
+			
+       </div>
+		{% endblock %}

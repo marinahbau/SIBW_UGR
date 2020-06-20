@@ -1,0 +1,58 @@
+{% extends 'padre.html' %}
+
+{% block titulo %} Pagina principal {% endblock %}
+{% block css %} <link rel="stylesheet" href="templates/styles/stylesportada.css"/> {% endblock %}
+
+{% block opciones %} <script src="templates/javascript/funciones.js"></script>{% endblock %}
+
+{% block buscador %}
+
+<button class="openBtn" onclick="openSearch()">Buscar</button>
+	<div id="myOverlay" class="overlay">
+		<span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+		<div class="overlay-content">
+		<form action="buscarTodos.php">
+			<input type="text" placeholder="Search.." id="search" name="search" onkeyup="buscar()">
+			
+		</form>
+		<div id="result">
+			
+		</div>
+		</div>
+	</div>
+{% endblock %}
+
+		{% block registro %}
+			{% if not usuario %}
+				<h4>No estas registrado. Registrate o Logueate <a href="registrologin.php">aqui</a></h4>
+			
+			{% else %}
+				<h4>Hola {{ usuario['nick'] }}</h4>
+				<a href="cierraSesion.php">Cerrar Sesion</a>
+			{% endif%}
+		{% endblock %}
+
+			{% block central%}
+				<div class="principal">
+					
+					{% if usuario['tipo'] == "gestor" or usuario['tipo'] == "superusuario" %}
+						{% for i in eventos %}
+						<section class="secundario">
+							<img class="fotos" src={{i.icono}} alt="Sierra Nevada"/>
+							<a href="evento.php?ev={{i.id}}"><h3 align="center">{{i.nombre}}</h3> </a>
+						</section>
+						{% endfor %}
+					{% else %}
+						{% for i in eventos %}
+						{% if i.publicado == 1%}
+						<section class="secundario">
+							<img class="fotos" src={{i.icono}} alt="Sierra Nevada"/>
+							<a href="evento.php?ev={{i.id}}"><h3 align="center">{{i.nombre}}</h3> </a>
+						</section>
+						{% endif %}
+						{% endfor %}
+					{% endif %}
+					
+				</div>
+				
+			{% endblock %}

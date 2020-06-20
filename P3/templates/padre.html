@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block titulo %}{% endblock %}</title>
+		{% block css %}{% endblock %}
+		{% block opciones %} {% endblock %}
+	</head>
+	
+	<body>
+		<header>
+			<a  href="index.php" ><img id="logotipo" src="templates/images/hiking.png" alt="Escalador" width="10%" height="10%"/></a>
+			<h1> SENDERISMO GRANADA </h1>
+			<h4 class="menu">
+				<div class="opciones"> Eventos</div>
+				<div class="opciones"> Descubre </div>
+				<div class="opciones"> Crea tu ruta</div>
+			</h4> 
+		</header>
+		
+		<div>
+			<div class="grande">
+				{% block central %}
+				
+				{% endblock %}
+				
+				
+				<div class="lateral" >
+					<h3 id="enlacesinteres"> ENLACES DE INTERÉS </h3>
+					
+					<a href="https://www.agendadegranada.com/">Agenda Cultural Granada</a><br/><br/><br/>
+					<br></br>
+					<a href="http://www.turgranada.es/cosas-que-hacer/turismo-activo-y-de-naturaleza/excursiones-y-senderismo/">+ Senderismo Granada</a><br/><br/><br/>
+					<br></br>
+					<a href="http://www.granadatur.com/">Turismo Granada Oficial</a><br/><br/><br/>
+					<br></br>
+					<a href="https://www.campz.es/info/mejores-apps-senderismo/">8 Mejores Apps de Senderismo</a><br/><br/><br/>
+					<br></br>
+					<a href="https://es.wikipedia.org/wiki/Granada">Wikipedia Granada </a>
+					<br></br>
+					<br></br>
+					<a href="https://www.granadacf.es/">Granada CF</a>
+					<br></br>
+					<br></br>
+					<a href="https://www.tripadvisor.es/Tourism-g187441-Granada_Province_of_Granada_Andalucia-Vacations.html">TripAdvisor Granada</a>
+					<br></br>
+					<br></br>
+					<a href="https://www.granadacf.es/">Granada CF</a>
+					<br></br>
+					<br></br>
+					
+				</div>
+		
+			</div>
+			
+			<div class="pie">
+				<h5> Marina Hernández Bautista. Todos los Derechos Reservados. </h6>
+			</div>
+			
+		</div>
+	<br></br>
+		
+
+
+	</body>
+</html>

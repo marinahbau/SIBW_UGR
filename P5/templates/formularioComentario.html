@@ -1,0 +1,25 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Editar Comentario  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">EDITAR COMENTARIO </h3>
+
+    <div class="formulario">
+        <h6 class="comentario_individual"> Nombre: {{ comentario['nombre'] }}</h6>
+        <h6 class="comentario_individual"> Fecha: {{ comentario['fecha'] }}</h6>
+    
+   
+        <form action="editarComentario.php?ev={{ evento['id'] }}&cm={{ comentario['id'] }}" method="post" >
+    
+            <h6  class="comentario_individual">Comentario: </h6>
+            <textarea name="comentarios_usuario" id="comentarios_usuario"  rows="5" cols="50" onkeypress="comprobarPalabras(event)" required>{{ comentario['contenido'] }}</textarea>
+            <br></br>
+            <div style="text-align: center;">
+            <input  type="submit" value="Editar Comentario">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

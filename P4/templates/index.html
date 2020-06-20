@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+
+{% block titulo %} Pagina principal {% endblock %}
+{% block css %} <link rel="stylesheet" href="templates/styles/stylesportada.css"/> {% endblock %}
+
+		{% block registro %}
+			{% if not usuario %}
+				<h4>No estas registrado. Registrate o Logueate <a href="registrologin.php">aqui</a></h4>
+			
+			{% else %}
+				<h4>Hola {{ usuario['nick'] }}</h4>
+				<a href="cierraSesion.php">Cerrar Sesion</a>
+			{% endif%}
+		{% endblock %}
+
+			{% block central%}
+				<div class="principal">
+					{% for i in eventos %}
+					<section class="secundario">
+						<img class="fotos" src={{i.icono}} alt="Sierra Nevada"/>
+						<a href="evento.php?ev={{i.id}}"><h3 align="center">{{i.nombre}}</h3> </a>
+					</section>
+					{% endfor %}
+					
+				</div>
+				
+			{% endblock %}

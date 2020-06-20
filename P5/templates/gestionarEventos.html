@@ -1,0 +1,24 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Gestion Comentarios  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">LISTA EVENTOS </h3>
+    <a href="index.php"><img  class="miniatura" src="templates/images/home.png" /></a> 
+
+    {% for value in eventos %}
+    <div class="formulario">
+        <a href="eliminarEvento.php?ev={{ value.id }}"><img  class="miniatura" src="templates/images/trash.png" /></a> 
+        <a href="formularioEditarEvento.php?ev={{ value.id }}"><img  class="miniatura" src="templates/images/dibujar.png" /></a>  
+        <h3 class="evento"><b> Evento {{ value.id }}: {{ value.nombre }}</b></h3>
+            <div class="comentario_individual" id="ultimo_comentario">
+                <p>{{ value.organizacion }}</p> 
+                <p >{{ value.fecha }}</p>
+                <p >{{ value.descripcion }}</p>
+                <p >{{ value.enlace }}</p>
+            </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

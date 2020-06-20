@@ -1,0 +1,28 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Gestion Comentarios  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">LISTA COMENTARIOS </h3>
+
+    {% for value in eventos %}
+    <div class="formulario">
+        <h3 class="evento"><b> Evento {{ value.id }}: {{ value.nombre }}</b></h3>
+        {% for comentario in comentarios %}
+            {% if comentario.id_evento == value.id%}
+                <a href="formularioEditar.php?ev={{ value.id }}&cm={{comentario.id}}"><img  class="miniatura" src="templates/images/edit.png" /></a> 
+                <a href="eliminarComentario.php?cm={{comentario.id}}"><img  class="miniatura" src="templates/images/eliminar.png" /></a>  
+                <div class="formulario_peq">
+                <div class="comentario_individual" id="ultimo_comentario">
+                    <b>{{ comentario.nombre }}</b> {% if comentario.editado == 1 %} (editado por moderador) {% endif %}
+                    <p >{{ comentario.contenido }}</p>
+                    <p class="fechayhora">{{ comentario.fecha }}</p>
+                </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+{% endblock %}

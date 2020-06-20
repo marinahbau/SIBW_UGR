@@ -1,0 +1,108 @@
+body {
+	background-color: white;
+}
+
+h1 {
+	color: black;
+	text-align: center;
+	font-size: 5em;
+	font-family: verdana;
+}
+
+#enlacesinteres {
+	color: purple;
+	text-align: center;
+	font-size: 2em;
+}
+
+header {
+	padding: 10px;
+}
+
+.titulo {
+	padding: 10px;
+}
+
+.menu {
+	visibility: hidden;
+	color:purple;
+	padding: 10px;
+	text-align:center;
+	font-size: 1em;
+}
+
+
+#logotipo {
+	float: right;
+	border-radius: 50%;
+}
+
+
+.grande {
+	overflow:hidden;
+	padding-top:10px;
+}
+
+.lateral {
+	border: 1px solid purple;
+	width: 25%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+	padding-left:10px;
+	visibility: hidden;
+}
+
+.principal {
+	float: right;
+	width: 70%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+}
+
+.prueba {
+	overflow:hidden;
+}
+
+.info {
+	width: 30%;
+	color: black;
+	font-family: sans-serif;
+	padding-left: 10px;
+	float: left;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+}
+
+.rutaimg {
+	float: right;
+	width: 30%;
+	padding-top: 2%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+}
+
+.descripcion {
+	width: 95%;
+	color: black;
+	font-family: sans-serif;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.fotosruta {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.pie {
+	text-align: center;
+	color: black;
+	font-family: sans-serif;
+}
+
+.botones{
+	
+	visibility: hidden;
+	height: 4em;
+	width: 4em;
+}

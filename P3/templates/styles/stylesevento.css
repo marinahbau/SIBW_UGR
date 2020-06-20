@@ -1,0 +1,318 @@
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(59, 0, 107); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 10px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+  
+.sidenav h3 {
+	padding-left: 5%;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f1f1f1;
+	display: block;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sidenav a{
+	text-decoration:none;
+}
+  /* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+	margin-left: 50px;
+	color: white;
+
+}
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.comentario {
+	height: 4.5em;
+	width: 4.5em;
+}
+
+.comentario:hover{
+	filter:invert(100%);
+	transition: 0.5s;
+}
+
+/*******************************************************************************/
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+   
+   position: relative;
+   width: 60%;
+   margin: auto;
+   padding-bottom: 5%;
+   
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+  
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/****************************************************************************/
+body {
+	background-color: #f8e5a0;
+}
+
+h1 {
+	color: purple;
+	text-align: center;
+	font-size: 5em;
+	font-family: verdana;
+}
+
+#logotipo {
+	float: left;
+	border-radius: 50%;
+}
+
+
+header {
+	border: 1px solid purple;
+	padding: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menu {
+	color:purple;
+	padding: 10px;
+	text-align:center;
+	font-size: 1em;
+}
+
+.opciones {
+	width: 29%;
+    float: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.grande {
+	overflow:hidden;
+    padding-top:10px;
+}
+
+.lateral {
+	border: 1px solid purple;
+	width: 25%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+	padding-left:10px;
+	float: left;
+}
+
+#enlacesinteres {
+	
+	color: purple;
+	text-align: center;
+    font-size: 2em;
+	font-family: verdana;
+}
+
+.principal {
+	/*float: left;
+	width: 77%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;*/
+	
+	float: right;
+	width: 70%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+	position: relative;
+	
+}
+
+.prueba {
+	overflow:hidden;
+}
+
+.info {
+	width: 30%;
+	color: purple;
+	font-family: verdana;
+	padding-left: 10px;
+	float: left;
+	/*padding-bottom: 100%;
+	margin-bottom: -100%;*/
+}
+
+.rutaimg {
+	float: right;
+	width: 30%;
+	padding-top: 2%;
+	/*padding-bottom: 100%;
+	margin-bottom: -100%;*/
+}
+
+.descripcion {
+	width: 95%;
+	color: purple;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.fotosruta {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.clase_botones{
+	margin-left:33%;
+	height: 50%;
+	position: relative;
+	margin: auto;
+	padding-bottom: 10%;
+}
+.botones{
+	height: 4em;
+	width: 4em;
+	
+}
+
+.pie {
+    height: 10;
+	text-align: center;
+	border: 1px solid purple;
+	color: purple;
+	background-color: #c7bcf8;
+}
+
+.abajo {
+    width:100%;
+    float: right;
+}
+
+.zona_comentarios{
+	width: 100%;
+	overflow-y: auto;
+	height: 40%;
+}
+
+.comentario_individual {
+	color: white;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 0.7em;
+	padding: 2%;
+	border: 1px solid white;
+	border-radius: 2%;
+	margin: 5%;
+}
+
+.fechayhora {
+	font-size: 0.6em;
+}
+
+.formulario {
+	padding-left: 2%;
+	position: relative;
+	width: 100%;
+	top:18px;
+}
+
+.campos_formulario {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: white;
+}
+

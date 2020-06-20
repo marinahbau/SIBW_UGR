@@ -1,0 +1,24 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Insertar Evento  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">INSERTAR EVENTO </h3>
+
+    <div class="formulario">
+        <form action="formularioAniadirSegundaImagen.php?ev={{ evento_actual }}" method="post" enctype="multipart/form-data">
+            
+
+            <h6  class="comentario_individual">Sube una segunda imagen del evento</h6>
+            <input type="file" name="imagen"/>
+            
+            <h6  class="comentario_individual">Pie de foto: </h6>
+            <textarea name="pie" id="pie"  rows="1" cols="25" required></textarea>
+            <br></br>
+            <input type="submit" value="Siguiente" />
+        </form>
+    </div>
+
+
+{% endblock %}

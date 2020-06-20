@@ -1,0 +1,87 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Perfil {{ usuario['nick'] }} {% endblock %}
+
+
+
+{% block central %}
+{% if usuario %}
+    <h3 class="titulo">MI PERFIL </h6>
+    <div class="formulario">
+        <form action="modificarNombre.php" method="post" >
+            <h6 class="comentario_individual">Nick: {{ usuario['nick'] }}</h6>
+            <input type="text"  name="nick" id="nick" maxlength="50" size="50">
+            <input  type="submit" value="Modificar nombre">
+        </form>
+
+        <form action="modificarEmail.php" method="post" >
+            <h6  class="comentario_individual">e-mail: {{ usuario['email'] }}</h6>
+            <input type="text"  name="email" id="email" maxlength="70" size="50" >
+            <input  type="submit" value="Modificar Email">
+        </form>
+
+        <form action="modificarPass.php" method="post" >
+            <h6  class="comentario_individual">Contraseña: ***** </h6>
+            <input type="text" name="pass" id="pass" maxlength="50" size="50">
+            <input  type="submit" value="Modificar pass">
+         </form>   
+        <h6  class="comentario_individual">Tipo: {{ usuario['tipo'] }} </h6>
+    </div>
+    {% if usuario['tipo'] == "moderador" %}
+        <div class="boton">
+        <form action="gestionarComentarios.php" method="post" >
+            <input  class="boton" type="submit" value="Gestionar Comentarios">
+         </form> 
+        </div>
+    {% endif %}
+
+    {% if usuario['tipo'] == "gestor" %}
+        <div class="boton">
+        <form action="gestionarEventos.php" method="post" >
+            <input  class="boton" type="submit" value="Gestionar Eventos">
+         </form> 
+        </div>
+        <div class="boton">
+            <form action="formularioAniadirEvento.php" method="post" >
+                <input  class="boton" type="submit" value="Añadir Evento">
+             </form> 
+            </div>
+    {% endif %}
+
+    {% if usuario['tipo'] == "superusuario" %}
+        <div style="text-align: center;">
+        <div class="boton">
+        <form action="gestionarComentarios.php" method="post" >
+            <input  class="boton" type="submit" value="Gestionar Comentarios">
+         </form> 
+        </div>
+
+        <div class="boton">
+            <form action="gestionarEventos.php" method="post" >
+                <input  class="boton" type="submit" value="Gestionar Eventos">
+             </form> 
+        </div>
+        <div class="boton">
+            <form action="formularioAniadirEvento.php" method="post" >
+                <input  class="boton" type="submit" value="Añadir Evento">
+             </form> 
+            </div>
+
+        <div class="boton">
+            <form action="gestionarPermisos.php" method="post" >
+                <input  class="boton" type="submit" value="Gestionar Permisos">
+             </form> 
+        </div>
+        </div>
+    {% endif %}
+
+{% else %}
+    <h3 class="titulo">MI PERFIL </h6>
+    <div class="formulario">
+        <h5 class="comentario_individual">No estas registrado. Hazlo <a href="registrologin.php">aqui</a></a> </h5>
+    </div>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Gestion Comentarios  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">LISTA USUARIOS </h3> 
+    <a href="index.php"><img  class="miniatura" src="templates/images/home.png" /></a> 
+						
+
+    {% for value in usuarios %}
+        {% if value.nick != yo %}
+            {% if value.tipo == 'registrado' %}
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=moderador" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Moderador">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=gestor" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Gestor">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=superusuario" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Superusuario">
+                    </form> 
+                </div>
+            {% endif %}
+
+            {% if value.tipo == 'moderador' %}
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=registrado" method="post" >
+                        <input  class="boton" type="submit" value="Quitar Moderador">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=gestor" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Gestor">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=superusuario" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Superusuario">
+                    </form> 
+                </div>
+            {% endif %}
+
+            {% if value.tipo == 'gestor' %}
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=moderador" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Moderador">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=registrado" method="post" >
+                        <input  class="boton" type="submit" value="Quitar Gestor">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=superusuario" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Superusuario">
+                    </form> 
+                </div>
+            {% endif %}
+
+            {% if value.tipo == 'superusuario' %}
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=moderador" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Moderador">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=gestor" method="post" >
+                        <input  class="boton" type="submit" value="Hacer Gestor">
+                    </form> 
+                </div>
+                <div class="boton">
+                    <form action="setTipo.php?us={{value.id}}&ti=registrado" method="post" >
+                        <input  class="boton" type="submit" value="Quitar Superusuario">
+                    </form> 
+                </div>
+            {% endif %}
+                <br></br>
+            <div class="formulario">
+                <h1 class="comentario_individual"><b> Nick: {{ value.nick }}</b></h1>
+                <h1 class="comentario_individual"><b> Email: {{ value.email }}</b></h1>
+                <h1 class="comentario_individual"><b> Tipo: {{ value.tipo }}</b></h1>
+            </div>
+        {% endif %}    
+    
+    {% endfor %}
+
+{% endblock %}

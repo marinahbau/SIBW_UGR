@@ -1,0 +1,280 @@
+/* The side navigation menu */
+.sidenav {
+	visibility: hidden;
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(59, 0, 107); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 10px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+  
+.sidenav h3 {
+
+	padding-left: 5%;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f1f1f1;
+	display: block;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.sidenav a{
+	text-decoration:none;
+}
+  /* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+	visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+	margin-left: 50px;
+	color: white;
+
+}
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+	visibility: hidden;
+    transition: margin-left .5s;
+    padding: 20px;
+}
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.comentario {
+	visibility: hidden;
+	height: 4.5em;
+	width: 4.5em;
+}
+
+.comentario:hover{
+	visibility: hidden;
+	filter:invert(100%);
+	transition: 0.5s;
+}
+
+/*******************************************************************************/
+* {
+	box-sizing: border-box;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+	visibility: hidden;
+	 position: relative;
+	 width: 60%;
+	 margin: auto;
+	 padding-bottom: 5%;
+	 
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+	display: none;
+	visibility: hidden;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+	visibility: hidden;
+	cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+	visibility: hidden;
+	cursor: pointer;
+	position: absolute;
+	top: 40%;
+	width: auto;
+	padding: 16px;
+	margin-top: -50px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+	visibility: hidden;
+	right: 0;
+	border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+	visibility: hidden;
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+	visibility: hidden;
+	text-align: center;
+	background-color: #222;
+	padding: 2px 16px;
+	color: white;
+	
+  }
+  
+  .row:after {
+	visibility: hidden;
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+	visibility: hidden;
+	float: left;
+	width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+	visibility: hidden;
+	opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+	visibility: hidden;
+	opacity: 1;
+  }
+/***************************************************************/
+
+
+body {
+	background-color: white;
+}
+
+h1 {
+	color: black;
+	text-align: center;
+	font-size: 5em;
+	font-family: verdana;
+}
+
+#enlacesinteres {
+	color: purple;
+	text-align: center;
+	font-size: 2em;
+}
+
+header {
+	padding: 10px;
+}
+
+.titulo {
+	padding: 10px;
+}
+
+.menu {
+	visibility: hidden;
+	color:purple;
+	padding: 10px;
+	text-align:center;
+	font-size: 1em;
+}
+
+
+#logotipo {
+	float: right;
+	border-radius: 50%;
+}
+
+
+.grande {
+	overflow:hidden;
+	padding-top:10px;
+}
+
+.lateral {
+	border: 1px solid purple;
+	width: 25%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+	padding-left:10px;
+	visibility: hidden;
+}
+
+.principal {
+	float: right;
+	width: 70%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+}
+
+.prueba {
+	overflow:hidden;
+}
+
+.info {
+	width: 30%;
+	color: black;
+	font-family: sans-serif;
+	padding-left: 10px;
+	float: left;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+}
+
+.rutaimg {
+	float: right;
+	width: 30%;
+	padding-top: 2%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+}
+
+.descripcion {
+	width: 95%;
+	color: black;
+	font-family: sans-serif;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.fotosruta {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.pie {
+	text-align: center;
+	color: black;
+	font-family: sans-serif;
+}
+
+.botones{
+	
+	visibility: hidden;
+	height: 4em;
+	width: 4em;
+}

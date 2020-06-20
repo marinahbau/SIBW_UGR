@@ -1,0 +1,19 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Insertar Icono  {% endblock %}
+
+{% block central %}
+    <h3 class="titulo">INSERTAR EVENTO </h3> 
+
+    <div class="formulario">
+        <form action="formularioAniadirIcono.php?ev={{ evento_actual['id'] }}" method="post" enctype="multipart/form-data">
+    
+            <h6  class="comentario_individual">Sube un icono</h6>
+            <input type="file" name="imagen"/><br></br>
+            <input type="submit" value="Siguiente" />
+        </form>
+    </div>
+
+
+{% endblock %}

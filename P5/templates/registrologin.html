@@ -1,0 +1,38 @@
+{% extends 'padre_form.html' %}
+
+
+{% block titulo %}Acceder al sitio  {% endblock %}
+
+{% block central %}
+
+    <h3 class="titulo">ACCESO </h6>
+   <div class="formulario">
+        <form action="registrarUsuario.php" method="post" >
+            <h6 class="comentario_individual">Nombre:* </h6>
+            <input type="text" name="nick_registro" id="nick_registro" maxlength="50" size="50"required>
+
+            <h6  class="comentario_individual">e-mail:* </h6>
+            <input type="email"name="email_registro" id="email_registro" maxlength="70" size="50" >
+
+            <h6  class="comentario_individual">Contraseña:* </h6>
+            <input type="password" name="pass_registro" id="pass_registro" maxlength="50" size="50">
+            <br></br>
+            <input  type="submit" value="Registrarme">
+        </form>
+    </div>
+
+    <div class="formulario">
+    <form action="loginUsuario.php" method="post" >
+        <h6 class="comentario_individual">Nombre:* </h6>
+        <input type="text" name="nick_login" id="nick_login" maxlength="50" size="50"required>
+
+        <h6  class="comentario_individual">Contraseña:* </h6>
+        <input type="password" name="pass_login" id="pass_login" maxlength="50" size="50"required>
+        <br></br>
+        <input type="submit" value="Loguearme">
+    </form>
+</div>
+{% endblock %}
+
+
+ 

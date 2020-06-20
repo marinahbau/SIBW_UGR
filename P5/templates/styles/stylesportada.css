@@ -1,0 +1,175 @@
+a {
+	color: purple;
+}
+
+body {
+	background-color: #f8e5a0
+}
+
+h1 {
+	color: purple;
+	text-align: center;
+	font-size: 5em;
+	font-family: verdana;
+}
+
+#enlacesinteres {
+	color: purple;
+	text-align: center;
+	font-size: 2em;
+	font-family: verdana;
+}
+
+header {
+	border: 1px solid purple;
+	padding: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.opciones {
+	width: 29%;
+	float: right;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.titulo {
+	padding: 10px;
+}
+
+.menu {
+	color:purple;
+	padding: 10px;
+	text-align:center;
+	font-size: 1em;
+}
+
+
+#logotipo {
+	float: left;
+	border-radius: 50%;
+}
+
+
+.grande {
+	overflow:hidden;
+	padding-top:10px;
+}
+
+.lateral {
+	border: 1px solid purple;
+	width: 25%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+	padding-left:10px;
+}
+
+.principal {
+	border: 1px solid purple;
+	float: right;
+	width: 70%;
+	padding-bottom: 100%;
+	margin-bottom: -100%;
+}
+
+.secundario {
+	padding: 10px;
+	width: 29%;
+	margin: 1% 1%;
+	float: left;
+}
+
+.fotos{
+	max-height: 100%;
+	max-width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pie {
+	text-align: center;
+	border: 1px solid purple;
+	color: purple;
+	background-color: #c7bcf8;
+
+}
+
+.antesmenu {
+	width: 10%;
+	float: right;
+}
+
+
+/*****************************************************SEARCH BAR******************************************/
+/* The overlay effect with black background */
+.overlay {
+	height: 100%;
+	width: 100%;
+	display: none;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0, 0.9); /* Black with a little bit see-through */
+  }
+  
+  /* The content */
+  .overlay-content {
+	position: relative;
+	top: 26%;
+	width: 80%;
+	text-align: center;
+	margin-top: 30px;
+	margin: auto;
+  }
+  
+  /* Close button */
+  .overlay .closebtn {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
+	cursor: pointer;
+	color: white;
+  }
+  
+  .overlay .closebtn:hover {
+	color: #ccc;
+  }
+  
+  /* Style the search field */
+  .overlay input[type=text] {
+	padding: 15px;
+	font-size: 17px;
+	border: none;
+	float: left;
+	width: 80%;
+	background: white;
+  }
+  
+  .overlay input[type=text]:hover {
+	background: #f1f1f1;
+  }
+
+  .overlay a{
+	padding: 15px;
+	font-size: 17px;
+	border: none;
+	float: left;
+	width: 80%;
+	background: white;
+  }
+  
+  /* Style the submit button */
+  .overlay button {
+	float: left;
+	width: 20%;
+	padding: 15px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+  }
+  
+  .overlay button:hover {
+	background: #bbb;
+  }
